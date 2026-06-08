@@ -1,0 +1,19 @@
+# build / env
+venv/
+dist/
+build/
+__pycache__/
+*.spec
+
+# model (fetched at build time; shipped in the Release installer)
+models/
+*.onnx
+
+# release artifacts (uploaded to GitHub Releases, not committed)
+EasyBGRemover_Setup.exe
+EasyBGRemover_Setup.zip
+EasyBGRemover_portable.zip
+
+# logs / scratch
+*.log
+sdtest/
