@@ -29,14 +29,20 @@ No browser, no upload, no sign-up. Your images **never leave your computer**.
 - 🪶 **Lightweight** — runs on any Windows 10/11 PC, **no GPU required**
 
 ## ⬇️ Download
-Get the latest installer from the **[Releases](../../releases)** page:
+Two versions on the **[Releases](../../releases)** page — pick what fits you:
 
-1. Download **`EasyBGRemover_Setup.zip`**
-2. Unzip and run **`EasyBGRemover_Setup.exe`**
+| Version | Size | Quality | Best for |
+|---|---|---|---|
+| **Full** &nbsp;`EasyBGRemover_Setup.zip` | 186 MB | Maximum | Sharpest on fine hair, fur, tricky edges |
+| **Lite** &nbsp;`EasyBGRemover_Lite_Setup.zip` | 55 MB | Near-identical (~98%) | Faster download / slower connections |
+
+**Install (either version):**
+1. Download the `.zip` and unzip it
+2. Run the `..._Setup.exe` inside
 3. A desktop icon appears — click it and you're ready ✂️
 
-> The installer puts the app in your user folder and adds a single desktop shortcut,
-> then removes itself. No clutter, no dependencies to chase.
+> Both are 100% free, offline, no watermark. The installer puts the app in your user
+> folder, adds a single desktop shortcut, then removes itself — no clutter.
 
 ## 🔒 Why offline?
 Online background removers upload your photos to their servers, add watermarks, or
