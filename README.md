@@ -103,6 +103,17 @@ Two versions on the **[Releases](../../releases/latest)** page — pick what fit
 > **removes itself** — no leftover clutter. Both versions are 100% free, offline, and
 > watermark-free.
 
+### 📦 Installing is simple
+
+A normal, clean Windows installer — no bundled junk, no toolbars, no sign-up. It finishes
+in seconds and drops a single shortcut on your desktop.
+
+<div align="center">
+<img src="assets/install1.png" width="380" alt="Installing Easy Background Remover">
+&nbsp;&nbsp;
+<img src="assets/install2.png" width="380" alt="Setup complete — launch Easy Background Remover">
+</div>
+
 ## 🔒 Why offline matters
 
 Free online background removers earn money in ways you don't see: they upload your photos
