@@ -40,6 +40,14 @@ Whether you're making a product photo for an online store, a clean profile pictu
 sticker, a meme, a Discord/Telegram emoji, or a transparent logo — drop the image in,
 click once, and you're done.
 
+## 🖥️ What it looks like
+
+A clean, single-window app — no menus to learn, no clutter. Open it, click the button, done.
+
+<div align="center">
+<img src="assets/screenshot.png" width="440" alt="Easy Background Remover app window">
+</div>
+
 ## ✨ Features
 
 - 🖱️ **One-click removal** — drop a photo, get a transparent PNG. That simple.
