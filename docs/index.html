@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Easy Background Remover — Free, Offline, No Watermark (Windows)</title>
+<meta name="description" content="Remove the background from any photo in one click. Free, 100% offline, no watermark, no sign-up. Free background remover for Windows 10/11 — your images never leave your computer.">
+<link rel="icon" href="img/logo.png">
+<style>
+  :root{ --purple:#7c3aed; --blue:#2563eb; --ink:#0e1020; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#fff;overflow-x:hidden;
+       background:linear-gradient(120deg,#6d28d9,#2563eb,#7c3aed,#1e40af);background-size:400% 400%;
+       animation:bg 18s ease infinite;min-height:100vh}
+  @keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.45;z-index:0;animation:float 14s ease-in-out infinite}
+  .b1{width:420px;height:420px;background:#a855f7;top:-120px;left:-100px}
+  .b2{width:380px;height:380px;background:#22d3ee;bottom:-140px;right:-90px;animation-delay:-6s}
+  @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
+  .wrap{position:relative;z-index:2;max-width:1060px;margin:0 auto;padding:28px 20px 60px}
+  header{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:8px}
+  header img{width:46px;height:46px}
+  header b{font-size:18px;letter-spacing:.2px}
+  .hero{text-align:center;padding:18px 0 6px}
+  .hero h1{font-size:clamp(30px,6vw,54px);line-height:1.08;font-weight:800;margin-bottom:14px;text-shadow:0 4px 30px rgba(0,0,0,.25)}
+  .hero h1 span{background:linear-gradient(90deg,#fde68a,#fca5f1);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:clamp(15px,2.4vw,19px);opacity:.92;max-width:620px;margin:0 auto 8px}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 6px}
+  .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:6px 12px;border-radius:999px;font-size:12.5px;backdrop-filter:blur(6px)}
+  /* demo stage */
+  .stage{position:relative;width:min(420px,82vw);aspect-ratio:1;margin:26px auto 8px;border-radius:26px;
+         overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+  .stage .frame{position:absolute;inset:0;background:
+        conic-gradient(#0000 90deg,rgba(255,255,255,.10) 0 180deg,#0000 0 270deg,rgba(255,255,255,.10) 0) 0 0/34px 34px,
+        rgba(255,255,255,.06)}
+  .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:26px}
+  .stage .after{filter:drop-shadow(0 14px 26px rgba(0,0,0,.45));transition:opacity .5s}
+  .stage .before{object-fit:cover;transition:opacity 1.1s ease}
+  .stage .before.gone{opacity:0}
+  .scan{position:absolute;left:0;right:0;height:34%;top:-40%;z-index:5;pointer-events:none;
+        background:linear-gradient(180deg,transparent,rgba(255,255,255,.35),transparent);opacity:0}
+  .scan.run{animation:scan 1.1s ease forwards}
+  @keyframes scan{0%{top:-40%;opacity:.9}100%{top:110%;opacity:0}}
+  .tag{position:absolute;left:14px;bottom:14px;z-index:6;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);
+       padding:6px 12px;border-radius:999px;font-size:12.5px;backdrop-filter:blur(6px);transition:opacity .4s}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:22px 0 6px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 26px;border-radius:14px;font-weight:700;font-size:16px;
+       text-decoration:none;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.main{background:#fff;color:#5b21b6;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+  .btn.alt{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.3)}
+  .sub{opacity:.8;font-size:13px;margin-top:4px}
+  section.block{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:22px;
+                padding:30px 26px;margin-top:30px;backdrop-filter:blur(8px)}
+  h2{font-size:clamp(22px,4vw,30px);margin-bottom:18px;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .feat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
+  .feat .ic{font-size:24px;margin-bottom:8px}
+  .feat b{display:block;margin-bottom:5px;font-size:16px}
+  .feat p{opacity:.85;font-size:14px;line-height:1.5}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;counter-reset:s}
+  .step{position:relative;padding:18px 18px 18px 56px;background:rgba(255,255,255,.07);border-radius:16px;border:1px solid rgba(255,255,255,.12)}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:16px;width:28px;height:28px;
+                background:#fff;color:#6d28d9;border-radius:50%;display:grid;place-items:center;font-weight:800}
+  details{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:600}
+  details p{margin-top:8px;opacity:.88;font-size:14.5px;line-height:1.55}
+  footer{text-align:center;opacity:.8;font-size:13px;margin-top:36px;line-height:1.7}
+  footer a{color:#fde68a}
+  .seo{opacity:.6;font-size:12px;max-width:760px;margin:14px auto 0}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="wrap">
+
+  <header><img src="img/logo.png" alt="logo"><b>Easy Background Remover</b></header>
+
+  <div class="hero">
+    <h1>Remove any image background<br><span>in one click — free &amp; offline</span></h1>
+    <p>Drop in a photo, get a clean transparent PNG. No watermark, no sign-up, no upload — your images never leave your computer.</p>
+
+    <div class="stage" id="stage">
+      <div class="frame"></div>
+      <img class="after" id="after" src="img/person_after.png" alt="background removed">
+      <img class="before" id="before" src="img/person_before.jpg" alt="original photo">
+      <div class="scan" id="scan"></div>
+      <div class="tag" id="tag">Original</div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">✅ 100% Free</span>
+      <span class="badge">🔒 Fully Offline</span>
+      <span class="badge">🚫 No Watermark</span>
+      <span class="badge">🪶 No GPU needed</span>
+      <span class="badge">🪟 Windows 10 / 11</span>
+    </div>
+
+    <div class="cta">
+      <a class="btn main" href="https://github.com/Ix3WUhpgTPE/easy-background-remover/releases/latest">⬇️ Download for Windows</a>
+      <a class="btn alt" href="https://sourceforge.net/projects/easy-background-remover/files/">SourceForge mirror</a>
+    </div>
+    <div class="sub">Free forever · Full &amp; Lite versions · open-source (MIT)</div>
+  </div>
+
+  <section class="block">
+    <h2>Why you'll like it</h2>
+    <div class="grid">
+      <div class="feat"><div class="ic">🖱️</div><b>One click</b><p>Drop a photo — the background disappears, leaving a clean transparent PNG.</p></div>
+      <div class="feat"><div class="ic">🗂️</div><b>Batch mode</b><p>Process dozens of photos at once. No limits, no counters.</p></div>
+      <div class="feat"><div class="ic">🔒</div><b>100% offline</b><p>Everything runs on your PC. Your images are never uploaded anywhere.</p></div>
+      <div class="feat"><div class="ic">🚫</div><b>No watermark</b><p>No watermark, no account, no “pro” paywall. Full quality, free.</p></div>
+      <div class="feat"><div class="ic">🧠</div><b>Real AI quality</b><p>Clean edges on hair, fur and tricky outlines.</p></div>
+      <div class="feat"><div class="ic">🪶</div><b>Lightweight</b><p>Runs on any Windows 10/11 laptop. No graphics card required.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">Download &amp; run the installer — it adds one desktop icon, then removes itself.</div>
+      <div class="step">Open the app and click <b>“Select Image(s)”</b> — pick one photo or many.</div>
+      <div class="step">Your transparent PNG is saved next to the original. Done ✂️</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>FAQ</h2>
+    <details open><summary>Is it really free?</summary><p>Yes — completely free, no trial, no watermark, no “pro” upsell. Open-source under the MIT license.</p></details>
+    <details><summary>Do my photos get uploaded anywhere?</summary><p>No. Everything runs locally on your PC — it even works with the internet disconnected.</p></details>
+    <details><summary>Do I need a powerful PC or a graphics card?</summary><p>No. It runs on a normal Windows 10/11 laptop — no GPU needed.</p></details>
+    <details><summary>Full vs Lite — which do I pick?</summary><p>Both give great cutouts. <b>Full</b> is sharpest on fine hair/fur; <b>Lite</b> is a much smaller download with ~98% of the quality — ideal on slow connections.</p></details>
+  </section>
+
+  <div class="cta" style="margin-top:34px">
+    <a class="btn main" href="https://github.com/Ix3WUhpgTPE/easy-background-remover/releases/latest">⬇️ Download Free for Windows</a>
+  </div>
+
+  <footer>
+    <p><a href="https://github.com/Ix3WUhpgTPE/easy-background-remover">GitHub</a> ·
+       <a href="https://sourceforge.net/projects/easy-background-remover/">SourceForge</a> · MIT License</p>
+    <p class="seo">Free background remover for Windows · remove background from image · remove background free ·
+       offline background remover · background remover no watermark · transparent PNG maker · background eraser ·
+       cut out image · batch background remover · remove bg from photo offline.</p>
+  </footer>
+</div>
+
+<script>
+  const subjects=["person","cat","shoe"];
+  const before=document.getElementById("before"),after=document.getElementById("after"),
+        scan=document.getElementById("scan"),tag=document.getElementById("tag");
+  let i=0;
+  function step(){
+    const s=subjects[i];
+    before.src="img/"+s+"_before.jpg"; after.src="img/"+s+"_after.png";
+    before.classList.remove("gone"); tag.textContent="Original"; tag.style.opacity="1";
+    // start removal after a beat
+    setTimeout(()=>{ scan.classList.add("run"); },1400);
+    setTimeout(()=>{ before.classList.add("gone"); tag.textContent="Background removed ✓"; },1700);
+    setTimeout(()=>{ scan.classList.remove("run"); },2600);
+    // hold, then next subject
+    setTimeout(()=>{ tag.style.opacity="0"; },3900);
+    setTimeout(()=>{ i=(i+1)%subjects.length; step(); },4400);
+  }
+  step();
+</script>
+</body>
+</html>
