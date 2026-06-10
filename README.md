@@ -18,6 +18,8 @@
 
 **[⬇️ Download for Windows](../../releases/latest)** &nbsp;·&nbsp; no account, no upload, no catch
 
+🌐 **[Live demo & download → website](https://ix3wuhpgtpe.github.io/easy-background-remover/)**
+
 </div>
 
 ---
