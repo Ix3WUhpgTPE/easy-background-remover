@@ -96,9 +96,9 @@ Two versions on the **[Releases](../../releases/latest)** page — pick what fit
 | **Full** &nbsp;`EasyBGRemover_Setup.zip` | 186 MB | Maximum | Sharpest on fine hair, fur, tricky edges |
 | **Lite** &nbsp;`EasyBGRemover_Lite_Setup.zip` | 55 MB | Near-identical (~98%) | Faster download / slower connections |
 
-**Install (either version) — takes 20 seconds:**
+**Install — takes 20 seconds:**
 1. Download the `.zip` and unzip it
-2. Run the `..._Setup.exe` inside
+2. Run `EasyBGRemover.msi` inside
 3. A desktop icon appears — click it and you're ready ✂️
 
 > The installer puts the app in your user folder, adds a single desktop shortcut, then
